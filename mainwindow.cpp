@@ -21,9 +21,9 @@ void MainWindow::doMessage(QString str){
     qmb.setText(str);
     qmb.exec();
 }
-QString MainWindow::doSelectingBmp(bool mustExist){
+QString MainWindow::doSelectingImg(bool mustExist){
     QFileDialog qfd(this);
-    qfd.setNameFilter(tr("Bitmap (*.bmp)"));
+    qfd.setNameFilter(tr("Images (*.bmp *.jpg *.png)"));
     qfd.setAcceptMode(mustExist?QFileDialog::AcceptOpen:QFileDialog::AcceptSave);
     if(qfd.exec())return qfd.selectedFiles().at(0);
     else return NULL;
@@ -32,7 +32,7 @@ QString MainWindow::doSelectingBmp(bool mustExist){
 
 void MainWindow::on_actionImport_triggered()
 {
-    doMessage(imgstr=doSelectingBmp(true));
+    doMessage(imgstr=doSelectingImg(true));
 
     scena = new QGraphicsScene(ui->graphicsView);
     mapPxs = new QPixmap(imgstr);
@@ -47,7 +47,7 @@ void MainWindow::on_actionImport_triggered()
 
 void MainWindow::on_actionExport_triggered()
 {
-    doMessage(doSelectingBmp(false));
+    doMessage(doSelectingImg(false));
 }
 
 void MainWindow::on_pushButton_clicked()

@@ -32,7 +32,7 @@ private:
     QGraphicsView *view;
     Ui::MainWindow *ui;
     void doMessage(QString);
-    QString doSelectingBmp(bool mustExist);
+    QString doSelectingImg(bool mustExist);
 };
 
 #endif // MAINWINDOW_H

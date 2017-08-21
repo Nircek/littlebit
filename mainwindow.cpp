@@ -48,3 +48,8 @@ void MainWindow::on_actionExport_triggered()
 {
     doMessage(doSelectingBmp(false));
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+
+}

@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QGraphicsScene>
+#include <QGraphicsView>
 
 namespace Ui {
 class MainWindow;
@@ -23,6 +25,11 @@ private slots:
     void on_pushButton_clicked();
 
 private:
+    QString imgstr;
+
+    QGraphicsScene *scena;
+    QPixmap *mapPxs;
+    QGraphicsView *view;
     Ui::MainWindow *ui;
     void doMessage(QString);
     QString doSelectingBmp(bool mustExist);

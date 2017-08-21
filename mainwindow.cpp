@@ -30,7 +30,18 @@ QString MainWindow::doSelectingBmp(bool mustExist){
 
 void MainWindow::on_actionImport_triggered()
 {
-    doMessage(doSelectingBmp(true));
+    QString str;
+    doMessage(str=doSelectingBmp(true));
+
+    QGraphicsScene *scena = new QGraphicsScene(ui->graphicsView);
+    QPixmap mapPxs(str);
+    QGraphicsView *view = ui->graphicsView;
+    view->setFixedHeight(mapPxs.height());
+    view->setFixedWidth(mapPxs.width());
+    scena->addPixmap(mapPxs);
+    view->setScene(scena);
+    view->fitInView(scena->itemsBoundingRect(),Qt::KeepAspectRatio);
+    view->show();
 }
 
 void MainWindow::on_actionExport_triggered()
